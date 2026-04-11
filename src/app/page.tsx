@@ -96,10 +96,10 @@ export default function LandingPage() {
           </svg>
         </div>
         <h1 className="mb-2 text-3xl font-bold tracking-tight sm:text-4xl">
-          <span className="text-automotive-orange">Otomotiv</span> Sektörü
+          <span className="text-automotive-orange">İnsan Kaynakları</span>
         </h1>
         <h2 className="text-xl font-light text-steel-400 sm:text-2xl">
-          Ücretlendirme Simülasyonu
+          Yönetiminin Temelleri
         </h2>
         <p className="mt-3 max-w-md text-sm text-steel-500">
           Aday profilini oluştur, anonim olarak değerlendir ve piyasa

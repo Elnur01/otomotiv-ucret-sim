@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Otomotiv Sektörü Ücretlendirme Simülasyonu",
+  title: "İnsan Kaynakları Yönetiminin Temelleri",
   description:
     "İK dersi için interaktif ücretlendirme simülasyonu - Aday profili oluştur, değerlendir, analiz et.",
 };
@@ -24,8 +24,9 @@ export default function RootLayout({
 
         {/* Footer */}
         <footer className="border-t border-steel-800 py-4 text-center text-xs text-steel-600">
-          Otomotiv Sektörü Ücretlendirme Simülasyonu &copy; 2026 &mdash; İK
-          Ders Uygulaması
+          İnsan Kaynakları Yönetiminin Temelleri &copy; 2026 &mdash; Ücretlendirme Simülasyonu
+          <span className="mx-2 opacity-30">·</span>
+          <span className="opacity-40 italic">Eğitmenimiz Cemil Ceylan&apos;a ve Hüseyin Başkurt&apos;a saygılarla</span>
         </footer>
       </body>
     </html>

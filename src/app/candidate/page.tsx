@@ -328,13 +328,24 @@ export default function CandidatePage() {
           <div className="mb-4 grid gap-4 sm:grid-cols-2">
             <div>
               <label className="label-text">Okul</label>
-              <input
-                type="text"
-                className="input-field"
-                placeholder="Üniversite adı"
+              <select
+                className="select-field"
                 value={educationSchool}
                 onChange={(e) => setEducationSchool(e.target.value)}
-              />
+              >
+                <option value="">Üniversite Seçiniz</option>
+                <option value="İTÜ">İTÜ (İstanbul Teknik Üniversitesi)</option>
+                <option value="ODTÜ">ODTÜ</option>
+                <option value="Boğaziçi Üniversitesi">Boğaziçi Üniversitesi</option>
+                <option value="Hacettepe Üniversitesi">Hacettepe Üniversitesi</option>
+                <option value="İstanbul Üniversitesi">İstanbul Üniversitesi</option>
+                <option value="Ankara Üniversitesi">Ankara Üniversitesi</option>
+                <option value="Bilkent Üniversitesi">Bilkent Üniversitesi</option>
+                <option value="Koç Üniversitesi">Koç Üniversitesi</option>
+                <option value="Sabancı Üniversitesi">Sabancı Üniversitesi</option>
+                <option value="Yıldız Teknik Üniversitesi">Yıldız Teknik Üniversitesi</option>
+                <option value="Diğer">Diğer</option>
+              </select>
             </div>
             <div>
               <label className="label-text">Bölüm</label>
