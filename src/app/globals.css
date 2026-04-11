@@ -1,0 +1,149 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap");
+
+:root {
+  --bg-primary: #0f1117;
+  --bg-secondary: #1a1d28;
+  --bg-tertiary: #242836;
+  --border-color: #2d3348;
+  --text-primary: #e2e8f0;
+  --text-secondary: #94a3b8;
+  --accent-orange: #f59e0b;
+  --accent-blue: #3b82f6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+@layer components {
+  .card {
+    @apply rounded-xl border border-steel-800 bg-steel-900/50 p-6 backdrop-blur-sm;
+  }
+
+  .card-hover {
+    @apply card transition-all duration-300 hover:border-automotive-orange/30 hover:shadow-lg hover:shadow-automotive-orange/5;
+  }
+
+  .btn-primary {
+    @apply rounded-lg bg-automotive-orange px-6 py-3 font-semibold text-black transition-all duration-200 hover:bg-amber-400 hover:shadow-lg hover:shadow-automotive-orange/25 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-automotive-orange disabled:hover:shadow-none;
+  }
+
+  .btn-secondary {
+    @apply rounded-lg border border-steel-700 bg-steel-800 px-6 py-3 font-medium text-steel-200 transition-all duration-200 hover:border-steel-600 hover:bg-steel-700;
+  }
+
+  .btn-danger {
+    @apply rounded-lg bg-red-600 px-6 py-3 font-semibold text-white transition-all duration-200 hover:bg-red-500;
+  }
+
+  .btn-success {
+    @apply rounded-lg bg-emerald-600 px-6 py-3 font-semibold text-white transition-all duration-200 hover:bg-emerald-500;
+  }
+
+  .input-field {
+    @apply w-full rounded-lg border border-steel-700 bg-steel-900 px-4 py-3 text-steel-100 placeholder-steel-500 transition-colors focus:border-automotive-orange focus:outline-none focus:ring-1 focus:ring-automotive-orange/50;
+  }
+
+  .select-field {
+    @apply input-field appearance-none cursor-pointer;
+  }
+
+  .label-text {
+    @apply mb-2 block text-sm font-medium text-steel-300;
+  }
+
+  .section-title {
+    @apply mb-6 text-xl font-bold text-steel-100;
+  }
+
+  .badge {
+    @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-medium;
+  }
+
+  .badge-orange {
+    @apply badge border border-automotive-orange/30 bg-automotive-orange/10 text-automotive-orange;
+  }
+
+  .badge-blue {
+    @apply badge border border-automotive-blue/30 bg-automotive-blue/10 text-automotive-blue;
+  }
+
+  .badge-green {
+    @apply badge border border-automotive-green/30 bg-automotive-green/10 text-automotive-green;
+  }
+
+  .stat-card {
+    @apply card flex flex-col items-center justify-center text-center;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3d4560;
+}
+
+/* Animated gradient border */
+.gradient-border {
+  position: relative;
+}
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, #f59e0b, #6366f1, #10b981);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Gear icon animation */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+/* Pulse glow */
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(245, 158, 11, 0.2);
+  }
+}
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
