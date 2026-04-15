@@ -1,11 +1,9 @@
 export const DEPARTMENTS = [
-  "Satış",
-  "İK (İnsan Kaynakları)",
-  "Pazarlama",
-  "Tedarik Zinciri",
-  "Proje Yönetimi",
-  "IT (Bilgi Teknolojileri)",
-  "Üretim",
+  "Endüstri Mühendisliği",
+  "Ekonomi",
+  "Makine Mühendisliği",
+  "İşletme",
+  "İşletme Mühendisliği",
 ] as const;
 
 export const COMPETENCIES = [
@@ -21,11 +19,29 @@ export const COMPETENCIES = [
   "Dijital Okuryazarlık",
 ] as const;
 
+export const COMPUTER_SKILLS = [
+  "Office",
+  "Google Workspace",
+  "SAP",
+  "IFS",
+  "Salesforce CRM",
+  "Power BI",
+  "Tableau",
+  "Adobe",
+  "AI",
+  "Agentic AI",
+  "Python",
+  "R",
+  "JS",
+  "SQL",
+] as const;
+
 export const LANGUAGES = [
   "İngilizce",
   "Almanca",
   "Fransızca",
   "İspanyolca",
+  "Azerbaycanca",
   "Çince (Mandarin)",
   "Japonca",
   "Korece",

@@ -219,6 +219,39 @@ export default function AdminPage() {
     })
     .filter((x) => x.candidate != null);
 
+  // En çok öne çıkan yetkinlikler
+  const competencyCount: Record<string, number> = {};
+  candidates.forEach((c) => {
+    (c.competencies || []).forEach((comp) => {
+      competencyCount[comp] = (competencyCount[comp] || 0) + 1;
+    });
+  });
+  const topCompetencies = Object.entries(competencyCount)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 5);
+
+  // En çok seçilen güçlü özellikler
+  const strengthCount: Record<string, number> = {};
+  candidates.forEach((c) => {
+    (c.strengths || []).forEach((s) => {
+      strengthCount[s] = (strengthCount[s] || 0) + 1;
+    });
+  });
+  const topStrengths = Object.entries(strengthCount)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 3);
+
+  // En çok seçilen gelişime açık özellikler
+  const weaknessCount: Record<string, number> = {};
+  candidates.forEach((c) => {
+    (c.weaknesses || []).forEach((w) => {
+      weaknessCount[w] = (weaknessCount[w] || 0) + 1;
+    });
+  });
+  const topWeaknesses = Object.entries(weaknessCount)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 3);
+
   const statusLabel: Record<string, string> = {
     registration: "Kayıt Aşaması",
     evaluating: "Değerlendirme Aşaması",
@@ -558,6 +591,90 @@ export default function AdminPage() {
                           matchings={matchings}
                         />
                       </div>
+                    </div>
+                  </div>
+
+                  {/* ── 3 Yeni İstatistik Bloğu ── */}
+                  <div className="grid gap-6 lg:grid-cols-3">
+                    {/* En çok öne çıkan yetkinlikler */}
+                    <div className="card">
+                      <h3 className="mb-4 text-base font-bold text-steel-100">
+                        🏆 Öne Çıkan Yetkinlikler
+                      </h3>
+                      {topCompetencies.length > 0 ? (
+                        <div className="space-y-3">
+                          {topCompetencies.map(([comp, count], i) => (
+                            <div key={comp}>
+                              <div className="mb-1 flex items-center justify-between text-xs">
+                                <span className="text-steel-300">{comp}</span>
+                                <span className="text-automotive-orange font-mono">{count} kişi</span>
+                              </div>
+                              <div className="h-2 overflow-hidden rounded-full bg-steel-800">
+                                <div
+                                  className="h-full rounded-full bg-automotive-orange transition-all"
+                                  style={{ width: `${(count / (topCompetencies[0]?.[1] || 1)) * 100}%` }}
+                                />
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      ) : (
+                        <p className="text-sm text-steel-600">Veri yok</p>
+                      )}
+                    </div>
+
+                    {/* En çok seçilen güçlü özellikler */}
+                    <div className="card">
+                      <h3 className="mb-4 text-base font-bold text-steel-100">
+                        💪 Öne Çıkan Güçlü Özellikler
+                      </h3>
+                      {topStrengths.length > 0 ? (
+                        <div className="space-y-3">
+                          {topStrengths.map(([trait, count]) => (
+                            <div key={trait}>
+                              <div className="mb-1 flex items-center justify-between text-xs">
+                                <span className="text-steel-300">{trait}</span>
+                                <span className="text-emerald-400 font-mono">{count} kişi</span>
+                              </div>
+                              <div className="h-2 overflow-hidden rounded-full bg-steel-800">
+                                <div
+                                  className="h-full rounded-full bg-emerald-500 transition-all"
+                                  style={{ width: `${(count / (topStrengths[0]?.[1] || 1)) * 100}%` }}
+                                />
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      ) : (
+                        <p className="text-sm text-steel-600">Veri yok</p>
+                      )}
+                    </div>
+
+                    {/* En çok seçilen gelişime açık özellikler */}
+                    <div className="card">
+                      <h3 className="mb-4 text-base font-bold text-steel-100">
+                        🌱 Öne Çıkan Gelişim Alanları
+                      </h3>
+                      {topWeaknesses.length > 0 ? (
+                        <div className="space-y-3">
+                          {topWeaknesses.map(([trait, count]) => (
+                            <div key={trait}>
+                              <div className="mb-1 flex items-center justify-between text-xs">
+                                <span className="text-steel-300">{trait}</span>
+                                <span className="text-red-400 font-mono">{count} kişi</span>
+                              </div>
+                              <div className="h-2 overflow-hidden rounded-full bg-steel-800">
+                                <div
+                                  className="h-full rounded-full bg-red-500 transition-all"
+                                  style={{ width: `${(count / (topWeaknesses[0]?.[1] || 1)) * 100}%` }}
+                                />
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      ) : (
+                        <p className="text-sm text-steel-600">Veri yok</p>
+                      )}
                     </div>
                   </div>
 

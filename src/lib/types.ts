@@ -21,10 +21,12 @@ export interface Candidate {
   department: string | null;
   education_school: string | null;
   education_field: string | null;
+  last_company: string | null;
   experience_total: number;
   experience_field: number;
   languages: LanguageEntry[];
   competencies: string[];
+  computer_skills: string[];
   strengths: string[];
   weaknesses: string[];
   salary_expectation: number;

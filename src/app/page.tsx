@@ -178,13 +178,6 @@ export default function LandingPage() {
         </button>
       </form>
 
-      {/* Admin link */}
-      <button
-        onClick={() => router.push("/admin")}
-        className="mt-8 text-sm text-steel-600 underline-offset-4 transition-colors hover:text-steel-400 hover:underline"
-      >
-        Admin Paneli
-      </button>
     </div>
   );
 }
