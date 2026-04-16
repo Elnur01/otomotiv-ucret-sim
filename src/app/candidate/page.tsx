@@ -4,7 +4,6 @@ import { useEffect, useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase";
 import {
-  DEPARTMENTS,
   COMPETENCIES,
   COMPUTER_SKILLS,
   LANGUAGES,
@@ -148,8 +147,8 @@ export default function CandidatePage() {
     e.preventDefault();
     setError("");
 
-    if (!age || !gender || !department) {
-      setError("Lütfen yaş, cinsiyet ve bölüm alanlarını doldurun.");
+    if (!age || !gender) {
+      setError("Lütfen yaş ve cinsiyet alanlarını doldurun.");
       return;
     }
     if (!educationSchool || !educationField) {
@@ -271,16 +270,6 @@ export default function CandidatePage() {
             <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-automotive-indigo/10 text-sm font-bold text-automotive-indigo">2</span>
             Kurumsal Detaylar
           </h3>
-
-          <div className="mb-4">
-            <label className="label-text">Bölüm</label>
-            <select className="select-field" value={department} onChange={(e) => setDepartment(e.target.value)}>
-              <option value="">Bölüm Seçiniz</option>
-              {DEPARTMENTS.map((d) => (
-                <option key={d} value={d}>{d}</option>
-              ))}
-            </select>
-          </div>
 
           <div className="mb-4 grid gap-4 sm:grid-cols-2">
             <div>
